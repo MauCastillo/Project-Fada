@@ -29,8 +29,10 @@ public class Lectura {
     String fecha_inicio;
     String fecha_fin;
     int numero_empleados;
+    public int numero_maximo_arboles;
 
     public ArrayList<Rodales> ReadFile() {
+        numero_maximo_arboles = 0;
         File archivo;
         FileReader fr = null;
         BufferedReader br;
@@ -61,8 +63,12 @@ public class Lectura {
                     fecha_inicio = tokens.nextToken();
                     fecha_fin = tokens.nextToken();
                     numero_empleados = Integer.parseInt(tokens.nextToken());
-                    rodal = new Rodales(id, numero_arboles, costo_estimado, fecha_inicio, fecha_fin,numero_empleados);
+                    rodal = new Rodales(id, numero_arboles, costo_estimado, fecha_inicio, fecha_fin, numero_empleados);
                     zonas.add(rodal);
+
+                    if (numero_arboles > numero_maximo_arboles) {
+                        numero_maximo_arboles = numero_arboles;
+                    }
 
                 }
                 contador += 1;
