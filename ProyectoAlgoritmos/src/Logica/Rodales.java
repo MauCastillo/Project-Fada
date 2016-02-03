@@ -16,6 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class Rodales {
 
+    public Rodales() {
+    }
+
     //Declaracion 
     int id;
     int numero_arboles;

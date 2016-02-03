@@ -36,14 +36,14 @@ public class ProyectoAlgoritmos {
             System.out.println("Fin fecha " + c1.getFecha_fin());
             System.out.println("Numero empleados " + c1.getNumero_empleados());
         }
-        ImprimirPantalla( funcionalidades.ContingSort(c, numero_maximo));
+        ImprimirPantalla( funcionalidades.InsertionSort(c));
     }
 
     public static void ImprimirPantalla(ArrayList <Rodales> entrada_arraylist) {
 
         ArrayList<Rodales> c =  entrada_arraylist;
         for (Rodales c1 : c) {
-            System.out.println("-+-+-+-+-+-+-+-+-+-+-+-");
+            System.out.println("-- Funcion Llamado InsrtionSort--");
             System.out.println("Id " + c1.getId());
             System.out.println("Numero de Arboles " + c1.getNumero_arboles());
             System.out.println("Costo " + c1.getCosto_estimado());

@@ -23,59 +23,52 @@ public class Algoritmos {
      * http://www.sanfoundry.com/java-program-implement-counting-sort/ *
      */
     public ArrayList<Rodales> ContingSort(ArrayList<Rodales> arr, int numero_maximo) {
-        int N = arr.size();
-        if (N == 0) {
-            return arr;
-        }
-        /**
-         * find max and min values *
-         */
-        int max = arr.get(0).numero_arboles, min = arr.get(0).numero_arboles;
-        for (int i = 1; i < N; i++) {
-            if (arr.get(i).numero_arboles > max) {
-                max = arr.get(i).numero_arboles;
-            }
-            if (arr.get(i).numero_arboles < min) {
-                min = arr.get(i).numero_arboles;
-            }
-        }
-        int range = max - min + 1;
+        for
+        
+        
+    }
 
-        /**
-         * check if range is small enough for count array *
-         */
-        /**
-         * else it might give out of memory exception while allocating memory
-         * for array *
-         */
-        if (range > numero_maximo) {
-            System.out.println("\nError : Range too large for sort");
-            return arr;
+    /*InsertionSort  Implementado para rodales partiendo de la caracteristica numero arboles*/
+    public ArrayList<Rodales> InsertionSort(ArrayList<Rodales> entrada) {
+        ArrayList<Rodales> temporal = entrada;
+        Rodales key = new Rodales();
+        temporal.add(0, key);
+
+        int i = 0;
+        for (int j = 0; j < temporal.size(); j++) {
+            key = temporal.get(j);
+            i = j - 1;
+
+            while (i > 0 && temporal.get(i).numero_arboles > key.numero_arboles) {
+                System.out.println("entro " + i);
+                temporal.set(i + 1, temporal.get(i));
+                i -= 1;
+            }
+            temporal.set(i + 1, key);
+        }
+        temporal.remove(0);
+        return temporal;
+    }
+/*No lo termine*/
+    public ArrayList<Rodales> BuquetSort(ArrayList<Rodales> entrada) {
+        int n = entrada.size();
+        ArrayList<Rodales> temporal = entrada;
+        ArrayList<ArrayList<Rodales>> B;
+        for (int i = 0; i < n; i++) {
+
+        }
+        return entrada;
+    }
+/*No los termine*/
+    public ArrayList<ArrayList<Rodales>> Token(ArrayList<Rodales> entrada, int numero_particiones) {
+        int size_particiones = entrada.size() / numero_particiones;
+        int inicial = 0;
+        int parada = 0;
+
+        for (int i = 0; i < numero_particiones; i++) {
+            
         }
 
-        int[] count = new int[range];
-        /**
-         * make count/frequency array for each element *
-         */
-        for (int i = 0; i < N; i++) {
-            count[arr.get(i).numero_arboles - min]++;
-        }
-        /**
-         * modify count so that positions in final array is obtained *
-         */
-        for (int i = 1; i < range; i++) {
-            count[i] += count[i - 1];
-        }
-        /**
-         * modify original array *
-         */
-        int j = 0;
-        for (int i = 0; i < range; i++) {
-            while (j < count[i]) {
-                arr.get(j++).numero_arboles = i + min;
-            }
-        }
-        return arr;
     }
 
 }
