@@ -36,7 +36,7 @@ public class ProyectoAlgoritmos {
             System.out.println("Fin fecha " + c1.getFecha_fin());
             System.out.println("Numero empleados " + c1.getNumero_empleados());
         }
-        ImprimirPantalla( funcionalidades.InsertionSort(c));
+        ImprimirPantalla( funcionalidades.ContingSort(c,lectura.numero_maximo_arboles));
     }
 
     public static void ImprimirPantalla(ArrayList <Rodales> entrada_arraylist) {

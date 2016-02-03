@@ -6,6 +6,7 @@
 package Logica;
 
 import java.util.ArrayList;
+import sun.nio.cs.StreamDecoder;
 
 /**
  *
@@ -22,10 +23,31 @@ public class Algoritmos {
      * Este algoritmo lo hize basado en el webSite
      * http://www.sanfoundry.com/java-program-implement-counting-sort/ *
      */
-    public ArrayList<Rodales> ContingSort(ArrayList<Rodales> arr, int numero_maximo) {
-        for
+    public ArrayList<Rodales> ContingSort(ArrayList<Rodales> A, int numero_maximo) {
+        ArrayList<Rodales> B = new ArrayList<>();
+        ArrayList<Rodales> C = new ArrayList<>();
         
+       /* for (int i = 0; i < numero_maximo; i++) {
+            C.get(i).numero_arboles = 0;
+            
+        }*/
         
+        for (int j = 0; j < A.size(); j++) {
+            C.set(A.get(j).numero_arboles, A.get(j+1));            
+        }
+        
+        for (int j = 1; j < numero_maximo ; j++) {
+            C.get(j).numero_arboles = (C.get(j).numero_arboles + C.get(j-1).numero_arboles );           
+        }
+        for (int j = A.size(); j > 0; j--) {
+            int indice =  C.get(A.get(j).numero_arboles).numero_arboles;
+            B.set(indice, A.get(j));
+            int indice2 = A.get(j).numero_arboles;
+            C.get(indice2).numero_arboles -= 1;
+            C.set(indice2, C.get(indice2));
+        }
+        
+        return B;
     }
 
     /*InsertionSort  Implementado para rodales partiendo de la caracteristica numero arboles*/
@@ -59,16 +81,4 @@ public class Algoritmos {
         }
         return entrada;
     }
-/*No los termine*/
-    public ArrayList<ArrayList<Rodales>> Token(ArrayList<Rodales> entrada, int numero_particiones) {
-        int size_particiones = entrada.size() / numero_particiones;
-        int inicial = 0;
-        int parada = 0;
-
-        for (int i = 0; i < numero_particiones; i++) {
-            
-        }
-
-    }
-
 }
