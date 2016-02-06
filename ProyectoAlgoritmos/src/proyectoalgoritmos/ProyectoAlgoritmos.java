@@ -35,8 +35,10 @@ public class ProyectoAlgoritmos {
         time_start = System.currentTimeMillis();
 
         ArrayList<Rodales> MergeOut = ordenamieto.mergeSort(c);
-        funcionalidades.ImprimirPantalla(funcionalidades.MaximoNumeroRodales(MergeOut));
+        MergeOut = (funcionalidades.MaximoNumeroRodales(MergeOut)); //Calculo es costo de tiempo del algoritmo//
         time_end = System.currentTimeMillis();
+        funcionalidades.ImprimirArchivo(MergeOut);
+
         System.out.println("the task has taken " + (time_end - time_start) + " milliseconds");
     }
 

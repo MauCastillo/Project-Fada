@@ -5,6 +5,7 @@
  */
 package Logica;
 
+import ModuloArchivos.Escritura;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,8 +28,8 @@ public class Funcionalidades {
         for (int i = 1; i < entrada.size(); i++) {
             Date date1 = Solucion.get(Solucion.size() - 1).fecha_fin;
             Date date2 = entrada.get(i).fecha_inicio;
-            
-            if ( !date2.before(date1)) {
+
+            if (!date2.before(date1)) {
                 Solucion.add(entrada.get(i));
                 System.out.println(" Date1 " + cambio_Formato_Fecha.format(date1) + " Date2 " + cambio_Formato_Fecha.format(date2));
             }
@@ -51,4 +52,13 @@ public class Funcionalidades {
 
     }
 
+    public void ImprimirArchivo(ArrayList<Rodales> entrada_arraylist) {
+        Escritura escritura = new Escritura();
+        ArrayList<Rodales> c = entrada_arraylist;
+        escritura.setAddelement(c.size());
+        for (int i = 0; i < c.size(); i++) {
+            escritura.setAddelement("id: " + entrada_arraylist.get(i).id);
+        }
+        escritura.setArchivoWrite();
+    }
 }
