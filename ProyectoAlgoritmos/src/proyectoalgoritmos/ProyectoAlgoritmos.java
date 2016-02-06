@@ -10,9 +10,11 @@ import Logica.Rodales;
 import ModuloArchivos.Lectura;
 import java.util.ArrayList;
 import Logica.Funcionalidades;
+
 /**
- *Este Proyecto no cumple con las especificaciones del paradigma orientado a objetos
- * Se puede encontrar cosas incomprensibles para otros programadores.
+ * Este Proyecto no cumple con las especificaciones del paradigma orientado a
+ * objetos Se puede encontrar cosas incomprensibles para otros programadores.
+ *
  * @author Soporte
  */
 public class ProyectoAlgoritmos {
@@ -24,27 +26,13 @@ public class ProyectoAlgoritmos {
     public static void main(String[] args) {
 
         Lectura lectura = new Lectura();
-        Algoritmos funcionalidades = new Algoritmos();
+        Algoritmos ordenamieto = new Algoritmos();
+        Funcionalidades funcionalidades = new Funcionalidades();
         int numero_maximo = 1000;
         /*Eliminar prueba de lectura posteriormente*/
         ArrayList<Rodales> c = lectura.ReadFile();
 
-        ImprimirPantalla( funcionalidades.InsertionSort(c));
-    }
-
-    public static void ImprimirPantalla(ArrayList <Rodales> entrada_arraylist) {
-
-        ArrayList<Rodales> c =  entrada_arraylist;
-        for (Rodales c1 : c) {
-            System.out.println("-- Funcion Llamado InsrtionSort--");
-            System.out.println("Id " + c1.getId());
-            System.out.println("Numero de Arboles " + c1.getNumero_arboles());
-            System.out.println("Costo " + c1.getCosto_estimado());
-            System.out.println("Inicio fecha " + c1.getFecha_inicio());
-            System.out.println("Fin fecha " + c1.getFecha_fin());
-            System.out.println("Numero empleados " + c1.getNumero_empleados());
-        }
-
+        funcionalidades.ImprimirPantalla(funcionalidades.MaximoNumeroRodales(ordenamieto.InsertionSort(c)));
     }
 
 }

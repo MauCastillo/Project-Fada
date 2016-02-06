@@ -62,7 +62,6 @@ public class Lectura {
                     costo_estimado = Integer.parseInt(tokens.nextToken());
                     fecha_inicio = tokens.nextToken();
                     fecha_fin = tokens.nextToken();
-                    System.out.println(" fin " + fecha_fin);
                     numero_empleados = Integer.parseInt(tokens.nextToken());
                     rodal = new Rodales(id, numero_arboles, costo_estimado, fecha_inicio, fecha_fin, numero_empleados);
                     zonas.add(rodal);
