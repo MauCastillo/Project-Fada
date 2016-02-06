@@ -6,7 +6,6 @@
 package Logica;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  *
@@ -14,31 +13,18 @@ import java.util.Collections;
  */
 public class Funcionalidades {
 
-    public static void comb(ArrayList <Rodales> a, ArrayList<Rodales> b, ArrayList<ArrayList<Rodales>> solutions, int depth) {
+    Rodales inicial_Rodal = new Rodales();
 
-        Algoritmos algo = new Algoritmos();
-        if (a.size() == depth) {
-            a = algo.InsertionSort(a);
-            if (!solutions.contains(a)) {
-                solutions.add(a);
-            }
-
+    public void MaximoNumeroRodales(ArrayList <Rodales> entrada) {
+        inicial_Rodal = entrada.get(0);
+        
+        for (int i = 1; i < entrada.size(); i++) {
+                if 
+            
         }
+        
+        
 
-        for (String str : b) {
-            ArrayList <Rodales> aux = new ArrayList <Rodales>();
-            ArrayList <Rodales> baux = new ArrayList <Rodales>();
-            baux.addAll(b);
-            baux.remove(str);
-            aux.addAll(a);
-            aux.add(str);
-            comb(aux, baux, solutions, depth);
-
-            if (!solutions.isEmpty()) {
-                break;
-            }
-
-        }
     }
 
 }
