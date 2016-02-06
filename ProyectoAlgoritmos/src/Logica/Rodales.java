@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Soporte
  */
-public class Rodales {
+public class Rodales implements Comparable<Rodales> {
 
     public Rodales() {
     }
@@ -98,6 +98,11 @@ public class Rodales {
 
     public void setNumero_empleados(int numero_empleados) {
         this.numero_empleados = numero_empleados;
+    }
+
+    @Override
+    public int compareTo(Rodales other) {
+        return fecha_fin.compareTo(other.fecha_fin);
     }
 
 }

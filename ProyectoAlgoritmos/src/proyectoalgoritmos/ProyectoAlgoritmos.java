@@ -31,8 +31,13 @@ public class ProyectoAlgoritmos {
         int numero_maximo = 1000;
         /*Eliminar prueba de lectura posteriormente*/
         ArrayList<Rodales> c = lectura.ReadFile();
+        long time_start, time_end;
+        time_start = System.currentTimeMillis();
 
-        funcionalidades.ImprimirPantalla(funcionalidades.MaximoNumeroRodales(ordenamieto.InsertionSort(c)));
+        ArrayList<Rodales> MergeOut = ordenamieto.mergeSort(c);
+        funcionalidades.ImprimirPantalla(funcionalidades.MaximoNumeroRodales(MergeOut));
+        time_end = System.currentTimeMillis();
+        System.out.println("the task has taken " + (time_end - time_start) + " milliseconds");
     }
 
 }
