@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -18,11 +17,10 @@ import javax.swing.JOptionPane;
  * @author Pandiriwii
  */
 public class Escritura {
-
-    private File addreSaveFile;
+        private File addreSaveFile;
     private ArrayList<String> arraytexto = new ArrayList<>();
 
-    public Escritura() {
+    public Escritura (){
         JOptionPane.showMessageDialog(null, "Es necesario declara un \n directorio de salida ", "Crear Carpeta de salida", 1);
         JFileChooser file = new JFileChooser();
         file.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -30,8 +28,9 @@ public class Escritura {
         addreSaveFile = file.getSelectedFile();
     }
 
-    public void setArchivoWrite() {
-        /*Realiza la escritura en un archivo plano*/
+    public void setArchivoWrite()
+    { 
+            /*Realiza la escritura en un archivo plano*/
         FileWriter fichero = null;
         PrintWriter pw = null;
         int size = arraytexto.size();
@@ -56,7 +55,7 @@ public class Escritura {
                 e2.printStackTrace();
             }
         }
-        JOptionPane.showMessageDialog(null, "Archivo guardado Correctamente", "¡Felicidades!", 1);
+        JOptionPane.showMessageDialog(null,"Archivo guardado Correctamente","¡Felicidades!",1);
     }
 
     public void setAddelement(String texto) {
@@ -66,14 +65,5 @@ public class Escritura {
     public void setAddelement(int texto) {
         String number = "" + texto;
         arraytexto.add(number);
-    }
-int contador = 0;
-    public void StringToken(String entrada) {
-        StringTokenizer tokens = new StringTokenizer(entrada);
-        while (tokens.hasMoreTokens()) {
-            contador ++;
-            setAddelement(tokens.nextToken());
-        }
-arraytexto.add(0,""+ contador);
     }
 }

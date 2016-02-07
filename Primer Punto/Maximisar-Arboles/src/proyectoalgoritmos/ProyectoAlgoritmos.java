@@ -6,14 +6,10 @@
 package proyectoalgoritmos;
 
 import Logica.Algoritmos;
-import Logica.Funcionalidades;
-import java.util.ArrayList;
-import Logica.IteradorCombinacion;
-import Logica.Rodal;
-import ModuloArchivos.Escritura;
+import Logica.Rodales;
 import ModuloArchivos.Lectura;
-import java.util.Iterator;
-import java.util.List;
+import java.util.ArrayList;
+import Logica.Funcionalidades;
 
 /**
  * Este Proyecto no cumple con las especificaciones del paradigma orientado a
@@ -28,39 +24,37 @@ public class ProyectoAlgoritmos {
      *
      */
     public static void main(String[] args) {
+
         Lectura lectura = new Lectura();
-        Funcionalidades funcionalidades = new Funcionalidades();
-        ArrayList<Rodal> entrada = lectura.ReadFile();
-         long time_start, time_end;
-        time_start = System.currentTimeMillis();
         Algoritmos ordenamieto = new Algoritmos();
-        List<String> elementos = new ArrayList<>();
-        for (int i = 0; i < entrada.size(); i++) {
-            elementos.add(""+i);
+        Funcionalidades funcionalidades = new Funcionalidades();
+        ArrayList<Rodales> c = lectura.ReadFile();
+
+//Ordeno el arreglo con el algoritmo mergeSort Complejida  O(nlogn)
+        ArrayList<Rodales> MergeOut = ordenamieto.mergeSort(c);
+        ArrayList<Rodales> print = new ArrayList<>();
+        funcionalidades.entrada = MergeOut;
+
+        System.out.println("MergeSize " + MergeOut.size());
+        /*La complejida Total de este ciclo es de O(n^2) porque al relizar la llamada a las funciones
+        MaximoNumeroRodales(i); 
+        MaximoNumeroRodalesReverse(i);
+        Cada una de ellas Posee una Complejida de O(n)
+         */
+        long time_start, time_end;
+        time_start = System.currentTimeMillis();
+        for (int i = 0; i < MergeOut.size(); i++) {
+            funcionalidades.Solucion.clear();
+
+            print = funcionalidades.MaximoNumeroRodales(i); //Calculo es costo de tiempo del algoritmo// 
+            print = funcionalidades.MaximoNumeroRodalesReverse(i);
+            funcionalidades.Probar();
         }
-        int N = entrada.size()/2;
-        IteradorCombinacion it = new IteradorCombinacion(elementos, N);
-        Iterator s = it.iterator();
-        ArrayList l2 = new ArrayList();
-        
-        while (s.hasNext()) {
-            List<String> listares;
-            listares = (List<String>) s.next();
-            l2.add(listares);
-        }
-        for (int i = 0; i < l2.size(); i++) {
-            System.out.println(" Lista " + l2.get(i));
-            funcionalidades.ListaProbar((List<String>) l2.get(i), entrada);
-            System.out.println("Maximo Valor: " + funcionalidades.MaximoNumeroArboles +" Id: " + funcionalidades.idMaximoArboles );
-        }
-         time_end = System.currentTimeMillis();
-         System.out.println("the task has taken " + (time_end - time_start) + " milliseconds");
-        
-        Escritura escribir = new Escritura();
-        escribir.StringToken(funcionalidades.idMaximoArboles);
-        escribir.setArchivoWrite();
-        
-        
+        time_end = System.currentTimeMillis();
+        System.out.println("the task has taken " + (time_end - time_start) + " milliseconds");
+        System.out.println("++++++++++++ Mayor Numero de Rodales --------------- - ");
+        funcionalidades.ImprimirArchivo(funcionalidades.MayorNumeroArboles);
+
     }
 
 }

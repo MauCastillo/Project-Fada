@@ -6,10 +6,6 @@
 package Logica;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  *
@@ -20,12 +16,11 @@ import java.util.List;
  */
 public class Algoritmos {
 
-    private ArrayList<Rodal> salidaMersort = new ArrayList<>();
+    private ArrayList<Rodales> salidaMersort = new ArrayList<>();
 
-    public ArrayList<Rodal> getSalidaMersort() {
+    public ArrayList<Rodales> getSalidaMersort() {
         return salidaMersort;
     }
-
     /* Este algoritmo de ordenamieto tiene una complejida de O(n) */
     /**
      * Counting Sort function de ordenamieto de arboles adaptada Mauro Castillo
@@ -35,10 +30,12 @@ public class Algoritmos {
      *
      * @param entrada
      */
-    /*InsertionSort  Implementado para rodales partiendo de la caracteristica numero arboles*/
-    public ArrayList<Rodal> InsertionSort(ArrayList<Rodal> entrada) {
-        ArrayList<Rodal> temporal = entrada;
-        Rodal key = new Rodal();
+    /*Complejida O(n^2)
+    InsertionSort  Implementado para rodales partiendo de la caracteristica numero arboles*/
+    
+    public ArrayList<Rodales> InsertionSort(ArrayList<Rodales> entrada) {
+        ArrayList<Rodales> temporal = entrada;
+        Rodales key = new Rodales();
         temporal.add(0, key);
 
         int i = 0;
@@ -55,9 +52,10 @@ public class Algoritmos {
         temporal.remove(0);
         return temporal;
     }
-
-    public ArrayList<Rodal> mergeSort(ArrayList<Rodal> a) {
-        ArrayList<Rodal> tmpArray = new ArrayList<>();
+/*Complejida O(nlgn) diseñado para ordenar las fechas de finalizacion de menor a Mayor
+    La modificaion de coparacion esta en la clase rodal*/
+    public ArrayList <Rodales> mergeSort(ArrayList<Rodales> a) {
+        ArrayList<Rodales> tmpArray = new ArrayList<>();
         for (int i = 0; i < a.size(); i++) {
             tmpArray.add(a.get(i));
         }
@@ -65,7 +63,7 @@ public class Algoritmos {
         return salidaMersort;
     }
 
-    private void mergeSort(ArrayList<Rodal> a, ArrayList<Rodal> tmpArray,
+    private void mergeSort(ArrayList<Rodales> a, ArrayList<Rodales> tmpArray,
             int left, int right) {
         if (left < right) {
             int center = (left + right) / 2;
@@ -75,7 +73,7 @@ public class Algoritmos {
         }
     }
 
-    private void merge(ArrayList<Rodal> a, ArrayList<Rodal> tmpArray,
+    private void merge(ArrayList<Rodales> a, ArrayList<Rodales> tmpArray,
             int leftPos, int rightPos, int rightEnd) {
         int leftEnd = rightPos - 1;
         int tmpPos = leftPos;
@@ -105,7 +103,7 @@ public class Algoritmos {
             a.set(rightEnd, tmpArray.get(rightEnd));
         }
         salidaMersort = a;
-
+        
     }
-
+    
 }
