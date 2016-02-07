@@ -27,7 +27,7 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int Numeros_Registro = 1601; /*Ingrese el Numero de registro Que desea Obtener Para la Pruebas mas el valor de 1*/ 
+        int Numeros_Registro = 21; /*Ingrese el Numero de registro Que desea Obtener Para la Pruebas mas el valor de 1*/ 
         Random na = new Random(3);
         Random ct = new Random(1);
         Random ne = new Random(8);
